@@ -18,12 +18,14 @@ const newTask = (e) => {
 
 <style scoped>
 .input {
-  padding: 0.5em;
+  height: 10%;
+  box-sizing: border-box;
 }
 .input-text {
+  box-sizing: border-box;
   border-radius: 5px;
   border-color: white;
-  padding: 0.5em 0;
+  padding: 1em;
   outline-style: none;
   width: 100%;
 }

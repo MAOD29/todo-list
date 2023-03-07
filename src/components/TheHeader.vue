@@ -25,19 +25,17 @@ const pendingTaks = "Tienes 2 tareas pendientes";
 
 <style scoped>
 .header {
+  height: 20%;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0.5em;
+  box-sizing: border-box;
 }
 .header-title-welcome {
   color: #ffe53b;
   color: linear-gradient(147deg, #ffe53b 0%, #ff2525 74%);
 }
 .header-title-pending_task {
-  margin: 0;
-}
-.header-title-welcome {
   margin: 0;
 }
 </style>

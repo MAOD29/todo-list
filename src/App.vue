@@ -18,17 +18,18 @@ import Thebanner from "./components/Thebanner.vue";
 </template>
 
 <style scoped>
-.main {
-  width: 600px;
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  margin: 0;
-}
 .container {
   display: flex;
   justify-content: center;
   width: 100%;
-  gap: 10px;
+}
+.main {
+  width: 700px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  height: 100vh;
+  padding: 1em;
+  box-sizing: border-box;
 }
 </style>
