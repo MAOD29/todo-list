@@ -4,12 +4,18 @@
       <li class="list-item">
         <div class="list-item-name">
           <input
-            class="task_list-item-check"
             type="checkbox"
             :name="task.id"
             :id="task.id"
+            :checked="task.isCompleted"
+            @click="useTaskStores.completedTask(task.id)"
           />
-          <span>{{ task.description }}</span>
+          <span
+            :class="{
+              'list-item-name-description': task.isCompleted,
+            }"
+            >{{ task.description }}</span
+          >
         </div>
         <button
           type="button"
@@ -27,13 +33,15 @@
       <button
         @click="useTaskStores.getfilterTask('')"
         type="button"
-        class="footer-button-active"
+        class="footer-button"
+        :class="{ 'footer-button-active': useTaskStores.filter === '' }"
       >
         All
       </button>
       <button
         @click="useTaskStores.getfilterTask(0)"
         type="button"
+        :class="{ 'footer-button-active': useTaskStores.filter === 0 }"
         class="footer-button"
       >
         Active
@@ -41,18 +49,24 @@
       <button
         @click="useTaskStores.getfilterTask(1)"
         type="button"
+        :class="{ 'footer-button-active': useTaskStores.filter === 1 }"
         class="footer-button"
       >
         Completed
       </button>
     </div>
-    <button type="button" class="footer-button">Clear completed</button>
+    <button
+      @click="useTaskStores.deletetodoItemCompleted()"
+      type="button"
+      class="footer-button"
+    >
+      Clear completed
+    </button>
   </div>
 </template>
 
 <script setup>
 import { useTaskStore } from "../storage/index.js";
-import { computed, watchEffect } from "vue";
 
 const useTaskStores = useTaskStore();
 </script>
@@ -76,7 +90,16 @@ const useTaskStores = useTaskStore();
   gap: 15px;
 }
 .task_list-item-delete {
+  box-sizing: border-box;
+  border: none;
+  background: none;
   margin-right: 8px;
+  padding: 0.5em;
+  border-radius: 5px;
+}
+.task_list-item-delete:hover {
+  background: #ffe53be2;
+  color: #5f89fd;
 }
 .footer {
   height: 5%;
@@ -97,6 +120,10 @@ const useTaskStores = useTaskStore();
   background: none;
   padding: 0.5em;
 }
+.footer-button:hover {
+  background: #ffe53be2;
+  color: #5f89fd;
+}
 .footer-button-active {
   font-size: 15px;
   box-sizing: border-box;
@@ -104,6 +131,9 @@ const useTaskStores = useTaskStore();
   background: inherit;
   color: #ffe53b;
   border: 1px solid;
+}
+.list-item-name-description {
+  text-decoration-line: line-through;
 }
 hr {
   margin-block-start: 0.5em;
