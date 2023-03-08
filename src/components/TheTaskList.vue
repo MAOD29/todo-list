@@ -1,265 +1,68 @@
 <template>
   <ul class="list">
-    <li class="list-item">
-      <div class="list-item-name">
-        <input
-          class="task_list-item-check"
-          type="checkbox"
-          name="task1"
-          id="task1"
-        />
-        <span>Lista de tarea</span>
-      </div>
-      <span class="task_list-item-delete"> X</span>
-    </li>
-    <hr />
-    <li class="list-item">
-      <div class="list-item-name">
-        <input
-          class="task_list-item-check"
-          type="checkbox"
-          name="task1"
-          id="task1"
-        />
-        <span>Lista de tarea</span>
-      </div>
-      <span class="task_list-item-delete"> X</span>
-    </li>
-    <hr />
-    <li class="list-item">
-      <div class="list-item-name">
-        <input
-          class="task_list-item-check"
-          type="checkbox"
-          name="task1"
-          id="task1"
-        />
-        <span>Lista de tarea</span>
-      </div>
-      <span class="task_list-item-delete"> X</span>
-    </li>
-    <hr />
-    <li class="list-item">
-      <div class="list-item-name">
-        <input
-          class="task_list-item-check"
-          type="checkbox"
-          name="task1"
-          id="task1"
-        />
-        <span>Lista de tarea</span>
-      </div>
-      <span class="task_list-item-delete"> X</span>
-    </li>
-    <hr />
-    <li class="list-item">
-      <div class="list-item-name">
-        <input
-          class="task_list-item-check"
-          type="checkbox"
-          name="task1"
-          id="task1"
-        />
-        <span>Lista de tarea</span>
-      </div>
-      <span class="task_list-item-delete"> X</span>
-    </li>
-    <hr />
-    <li class="list-item">
-      <div class="list-item-name">
-        <input
-          class="task_list-item-check"
-          type="checkbox"
-          name="task1"
-          id="task1"
-        />
-        <span
-          >Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam
-          officia impedit recusandae aliquid est, quod dolores magni excepturi
-          provident? Illum asperiores quisquam maiores perferendis eum dolorem
-          facere ducimus sapiente numquam?</span
+    <template v-for="task in useTaskStores.tasks" :key="task.id">
+      <li class="list-item">
+        <div class="list-item-name">
+          <input
+            class="task_list-item-check"
+            type="checkbox"
+            :name="task.id"
+            :id="task.id"
+          />
+          <span>{{ task.description }}</span>
+        </div>
+        <button
+          type="button"
+          @click="useTaskStores.deleteTask(task.id)"
+          class="task_list-item-delete"
         >
-      </div>
-      <span class="task_list-item-delete"> X</span>
-    </li>
-    <hr />
-
-    <li class="list-item">
-      <div class="list-item-name">
-        <input
-          class="task_list-item-check"
-          type="checkbox"
-          name="task1"
-          id="task1"
-        />
-        <span>Lorem ipsum dolor s?</span>
-      </div>
-      <span class="task_list-item-delete"> X</span>
-    </li>
-    <hr />
-    <li class="list-item">
-      <div class="list-item-name">
-        <input
-          class="task_list-item-check"
-          type="checkbox"
-          name="task1"
-          id="task1"
-        />
-        <span>Lorem ipsum dolor s?</span>
-      </div>
-      <span class="task_list-item-delete"> X</span>
-    </li>
-    <hr />
-    <li class="list-item">
-      <div class="list-item-name">
-        <input
-          class="task_list-item-check"
-          type="checkbox"
-          name="task1"
-          id="task1"
-        />
-        <span>Lorem ipsum dolor s?</span>
-      </div>
-      <span class="task_list-item-delete"> X</span>
-    </li>
-    <hr />
-    <li class="list-item">
-      <div class="list-item-name">
-        <input
-          class="task_list-item-check"
-          type="checkbox"
-          name="task1"
-          id="task1"
-        />
-        <span>Lorem ipsum dolor s?</span>
-      </div>
-      <span class="task_list-item-delete"> X</span>
-    </li>
-    <hr />
-    <li class="list-item">
-      <div class="list-item-name">
-        <input
-          class="task_list-item-check"
-          type="checkbox"
-          name="task1"
-          id="task1"
-        />
-        <span>Lorem ipsum dolor s?</span>
-      </div>
-      <span class="task_list-item-delete"> X</span>
-    </li>
-    <hr />
-    <li class="list-item">
-      <div class="list-item-name">
-        <input
-          class="task_list-item-check"
-          type="checkbox"
-          name="task1"
-          id="task1"
-        />
-        <span>Lorem ipsum dolor s?</span>
-      </div>
-      <span class="task_list-item-delete"> X</span>
-    </li>
-    <hr />
-    <li class="list-item">
-      <div class="list-item-name">
-        <input
-          class="task_list-item-check"
-          type="checkbox"
-          name="task1"
-          id="task1"
-        />
-        <span>Lorem ipsum dolor s?</span>
-      </div>
-      <span class="task_list-item-delete"> X</span>
-    </li>
-    <hr />
-    <li class="list-item">
-      <div class="list-item-name">
-        <input
-          class="task_list-item-check"
-          type="checkbox"
-          name="task1"
-          id="task1"
-        />
-        <span>Lorem ipsum dolor s?</span>
-      </div>
-      <span class="task_list-item-delete"> X</span>
-    </li>
-    <hr />
-    <li class="list-item">
-      <div class="list-item-name">
-        <input
-          class="task_list-item-check"
-          type="checkbox"
-          name="task1"
-          id="task1"
-        />
-        <span>Lorem ipsum dolor s?</span>
-      </div>
-      <span class="task_list-item-delete"> X</span>
-    </li>
-    <hr />
-    <li class="list-item">
-      <div class="list-item-name">
-        <input
-          class="task_list-item-check"
-          type="checkbox"
-          name="task1"
-          id="task1"
-        />
-        <span>Lorem ipsum dolor s?</span>
-      </div>
-      <span class="task_list-item-delete"> X</span>
-    </li>
-    <hr />
-    <li class="list-item">
-      <div class="list-item-name">
-        <input
-          class="task_list-item-check"
-          type="checkbox"
-          name="task1"
-          id="task1"
-        />
-        <span>Lorem ipsum dolor s?</span>
-      </div>
-      <span class="task_list-item-delete"> X</span>
-    </li>
-    <hr />
-    <li class="list-item">
-      <div class="list-item-name">
-        <input
-          class="task_list-item-check"
-          type="checkbox"
-          name="task1"
-          id="task1"
-        />
-        <span>Lorem ipsum dolor s?</span>
-      </div>
-      <span class="task_list-item-delete"> X</span>
-    </li>
-    <hr />
+          X
+        </button>
+      </li>
+      <hr />
+    </template>
   </ul>
   <div class="footer">
-    <span>5 item left</span>
     <div class="footer-center">
-      <span>All</span>
-      <span>Active</span>
-      <span>Completed</span>
+      <button
+        @click="useTaskStores.getfilterTask('')"
+        type="button"
+        class="footer-button-active"
+      >
+        All
+      </button>
+      <button
+        @click="useTaskStores.getfilterTask(0)"
+        type="button"
+        class="footer-button"
+      >
+        Active
+      </button>
+      <button
+        @click="useTaskStores.getfilterTask(1)"
+        type="button"
+        class="footer-button"
+      >
+        Completed
+      </button>
     </div>
-    <span>Clear completed</span>
+    <button type="button" class="footer-button">Clear completed</button>
   </div>
 </template>
 
-<script setup></script>
+<script setup>
+import { useTaskStore } from "../storage/index.js";
+import { computed, watchEffect } from "vue";
+
+const useTaskStores = useTaskStore();
+</script>
 
 <style scoped>
 .list {
   box-sizing: border-box;
   overflow-y: auto;
   padding: 1em;
-  height: 50%;
+  max-height: 55%;
   border-radius: 5px;
   border: 1px solid rgb(92 67 186 / 31%);
 }
@@ -276,16 +79,31 @@
   margin-right: 8px;
 }
 .footer {
-  height: 20%;
+  height: 5%;
   box-sizing: border-box;
   display: flex;
   justify-content: space-around;
-  font-size: 14px;
-  padding: 1em;
+  align-items: center;
+  padding: 1.5em;
 }
 .footer-center {
   display: flex;
   gap: 5px;
+}
+.footer-button {
+  font-size: 15px;
+  box-sizing: border-box;
+  border: none;
+  background: none;
+  padding: 0.5em;
+}
+.footer-button-active {
+  font-size: 15px;
+  box-sizing: border-box;
+  padding: 0.5em;
+  background: inherit;
+  color: #ffe53b;
+  border: 1px solid;
 }
 hr {
   margin-block-start: 0.5em;

@@ -10,8 +10,18 @@
 </template>
 
 <script setup>
+import { computed } from "vue";
+import { useTaskStore } from "../storage/index.js";
 const newTask = (e) => {
-  //Save value
+  const { createTask } = useTaskStore();
+  var random_boolean = Math.random() < 0.5;
+  const task = {
+    id: Date.now(),
+    description: e.target.value,
+    status: random_boolean,
+  };
+
+  createTask(task);
   e.target.value = "";
 };
 </script>

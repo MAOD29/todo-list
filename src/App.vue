@@ -2,13 +2,12 @@
 import TheHeader from "./components/TheHeader.vue";
 import TheInput from "./components/TheInput.vue";
 import TheTaskList from "./components/TheTaskList.vue";
-import mainLayout from "./layout/main.vue";
 import Thebanner from "./components/Thebanner.vue";
 </script>
 
 <template>
-  <Thebanner />
   <div class="container">
+    <Thebanner />
     <main class="main">
       <TheHeader />
       <TheInput />
@@ -19,6 +18,7 @@ import Thebanner from "./components/Thebanner.vue";
 
 <style scoped>
 .container {
+  position: relative;
   display: flex;
   justify-content: center;
   width: 100%;
