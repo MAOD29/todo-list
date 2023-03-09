@@ -1,9 +1,11 @@
 import { defineStore } from "pinia";
 import { readonly, ref } from "vue";
+import { computed } from "vue";
 
 export const useTaskStore = defineStore("taskStore", () => {
   const tasks = ref([]);
   const filter = ref("");
+  ///const pendingTasks = ref(0);
 
   if (localStorage.getItem("todo-task")) {
     tasks.value = JSON.parse(localStorage.getItem("todo-task"));
@@ -41,6 +43,17 @@ export const useTaskStore = defineStore("taskStore", () => {
     tasks.value = JSON.parse(localStorage.getItem("todo-task"));
     getfilterTask(filter.value);
   }
+
+  const getPendingTasks = computed(() => {
+    const filterTask = filter.value;
+    getfilterTask("");
+    const countPendingTasks = tasks.value.filter((task) => {
+      return !task.isCompleted;
+    }).length;
+    getfilterTask(filterTask);
+    return countPendingTasks;
+  });
+
   return {
     getfilterTask,
     createTask,
@@ -49,5 +62,6 @@ export const useTaskStore = defineStore("taskStore", () => {
     deletetodoItemCompleted,
     tasks: readonly(tasks),
     filter,
+    getPendingTasks,
   };
 });
