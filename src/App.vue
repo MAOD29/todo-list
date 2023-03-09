@@ -2,12 +2,12 @@
 import TheHeader from "./components/TheHeader.vue";
 import TheInput from "./components/TheInput.vue";
 import TheTaskList from "./components/TheTaskList.vue";
-import Thebanner from "./components/Thebanner.vue";
+import TheBanner from "./components/TheBanner.vue";
 </script>
 
 <template>
   <div class="container">
-    <Thebanner />
+    <TheBanner />
     <main class="main">
       <TheHeader />
       <TheInput />
